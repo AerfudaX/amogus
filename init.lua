@@ -64,4 +64,84 @@ minetest.register_craft({
 	}
 })
 
+mobs:register_mob("amogus:mob_"..col[1], {
+	type = "monster",
+	passive = false,
+	attack_type = "dogfight",
+	attack_npcs = true,
+	pushable = true,
+	rotate = 180,
+	reach = 3,
+	damage = 16,
+	hp_min = 45,
+	hp_max = 80,
+	armor = 40,
+	collisionbox = {-0.5, -0.5, -0.5, 0.5, 1, 0.5},
+	visual = "wielditem",
+	textures = {"amogus:amogus_"..col[1]},
+	makes_footstep_sound = true,
+	view_range = 16,
+	walk_velocity = 2,
+	drops = {
+		{name = "amogus:amogus_"..col[1], chance = 1, min = 1, max = 2},
+	},
+	water_damage = 0,
+	lava_damage = 5,
+	light_damage = 0,
+	fall_damage = -1,
+	fall_speed = -10,
+	fear_height = 4,
+	visual_size = {x=0.65, y=0.65},
+})
+
+mobs:register_egg("amogus:mob_"..col[1],S("@1 Amogus ", col[2]), "(blanktextureamogus.png^[colorize:"..col[3]..":255)^cyanfaceamogus.png")
+
+mobs:alias_mob("amogus:"..col[1], "amogus:mob_"..col[1])
+
+minetest.register_craft({
+	output = "amogus:mob_" .. col[1],
+	recipe = {
+		{"","",""},
+		{"default:mese_crystal","amogus:amogus_"..col[1],"default:sword_steel"},
+		{"","",""},
+	}
+})
+
+minetest.register_craftitem("amogus:amogus_shard",{
+    description = S("Amogus Shard"),
+	inventory_image = "amogushard.png",
+	groups = {flammable = 2},
+})
+
+minetest.register_craft({
+	output = "amogus:amogus_shard",
+	recipe = {
+		{"","",""},
+		{"default:mese_crystal","amogus:amogus_"..col[1],"farming:mortar_pestle"},
+		{"","",""},
+	},
+	replacements = {{"farming:mortar_pestle", "farming:mortar_pestle"}},
+})
+
+minetest.register_craftitem("amogus:unforged_lavaingot",{
+    description = S("Unforged Lava Ingot"),
+	inventory_image = "lavastuff_ingot.png^[colorize:#E9F7FF:210",
+	groups = {flammable = 2},
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "amogus:unforged_lavaingot",
+	recipe = "amogus:amogus_shard",
+	cooktime = 10,
+})
+
+minetest.register_craft({
+    type = "cooking",
+	output = "lavastuff:ingot",
+	recipe = "amogus:unforged_lavaingot",
+	cooktime = 45,
+})
+
+
 end
