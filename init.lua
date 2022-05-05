@@ -120,7 +120,10 @@ minetest.register_craft({
 		{"default:mese_crystal","amogus:amogus_"..col[1],"farming:mortar_pestle"},
 		{"","",""},
 	},
-	replacements = {{"farming:mortar_pestle", "farming:mortar_pestle"}},
+	replacements = {
+		{"farming:mortar_pestle", "farming:mortar_pestle"},
+		{"amogus:amogus_"..col[1], "bonemeal:bone"},
+	},
 })
 
 minetest.register_craftitem("amogus:unforged_lavaingot",{
