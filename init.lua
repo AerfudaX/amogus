@@ -114,7 +114,7 @@ minetest.register_craftitem("amogus:amogus_shard",{
 })
 
 minetest.register_craft({
-	output = "amogus:amogus_shard",
+	output = "amogus:amogus_shard 6",
 	recipe = {
 		{"","",""},
 		{"default:mese_crystal","amogus:amogus_"..col[1],"farming:mortar_pestle"},
